@@ -12,5 +12,22 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  //for each string in tutorials, properly case the string
+  const capitalizedTutorials = tutorials.map(properCaseThis);
+  return capitalizedTutorials;
+}
+
+//capitalizes every word in string
+function properCaseThis(thing){
+  //create array "words" of individual words in title "thing"
+  const words = thing.split(" ");
+  let newThing = "";
+  for (let word of words){
+    //capitalize first character of word
+    const newWord = word.charAt(0).toUpperCase() + word.substr(1);
+    //add capitalized word and a whitespace to new string "newThing"
+    newThing = newThing.concat(newWord + " ");
+  }
+  //return capitalized string with white space removed from ends
+  return newThing.trim();
 }
